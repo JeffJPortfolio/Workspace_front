@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시물 상세 보기</title>
+    <style>
+        /* Your existing CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header and Footer */
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .sidebar h3 {
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Content Section */
+        .content {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Post Table Sections */
+        .post-header, .post-meta, .post-images, .post-content {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        /* Post Header (Title Section) */
+        .post-header td {
+            padding: 15px;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Order History Button Section */
+        .order-history-section {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .order-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .load-order {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .load-order:hover {
+            background-color: #0056b3;
+        }
+        .cancel-order {
+            background-color: #d9534f;
+            color: #fff;
+        }
+        .cancel-order:hover {
+            background-color: #c9302c;
+        }
+
+        /* Post Images Section - Single Image Upload */
+        .post-image {
+            padding: 20px;
+            text-align: center;
+        }
+        .image-button {
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin: 5px auto;
+            font-size: 1em;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        .image-button:hover {
+            background-color: #0056b3;
+        }
+        .delete-button {
+            background-color: #ff4d4f;
+        }
+        .delete-button:hover {
+            background-color: #d9363e;
+        }
+        .caption {
+            font-size: 1em;
+            color: #333;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Post Content Section */
+        .post-content td {
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        /* Post Registration Section */
+        .post-registration-section {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .post-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .post-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-post {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        .submit-post:hover {
+            background-color: #388E3C;
+        }
+        .cancel {
+            background-color: #d9534f;
+            color: #fff;
+        }
+        .cancel:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>게시물 상세 보기</h1>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="#">홈</a>
+        <a href="#">업체 리스트</a>
+        <a href="#">마이페이지</a>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <aside class="sidebar">
+            <h3>메뉴</h3>
+            <ul>
+                <li><a href="#">자유 게시판</a></li>
+                <li><a href="#">도안 게시판</a></li>
+                <li><a href="#">토론 게시판</a></li>
+            </ul>
+        </aside>
+
+        <!-- Content Section -->
+        <div class="content">
+            <!-- Title Section -->
+            <table class="post-header">
+                <tr>
+                    <td>제목 등록 하세요</td>
+                </tr>
+            </table>
+
+            <!-- Order History Section -->
+            <div class="order-history-section">
+                <button class="order-button load-order">주문내역 불러오기</button>
+                <button class="order-button cancel-order">취소</button>
+            </div>
+
+            <!-- Single Image Upload Section -->
+            <div class="post-image">
+                <button class="image-button" onclick="selectFromSavedList()">사진 목록에서 선택</button>
+                <button class="image-button" onclick="uploadFromPC()">PC에서 업로드</button>
+                <button class="image-button delete-button" onclick="deleteImage()">사진 삭제</button>
+                <div class="caption">사진 영역</div>
+            </div>
+
+            <!-- Post Content Section -->
+            <table class="post-content">
+                <tr>
+                    <td>쓸네용을 쓰세요</td>
+                </tr>
+            </table>
+
+            <div class="post-registration-section">
+                <!-- Post Registration Buttons -->
+                <div class="post-buttons">
+                    <button class="post-button submit-post">게시물 등록</button>
+                    <button class="post-button cancel">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Footer Section Outside Body -->
+<footer>
+    <p>케이크 사이트 © 2024. 모든 권리 보유.</p>
+</footer>
+</html>
